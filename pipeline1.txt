@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('git') {
+            steps {
+                
+                git url: 'https://github.com/shoaibakthark/www.git', branch: 'main'
+            }
+        }
+        stage('copy') {
+            steps {
+                
+                sh 'echo "0016" |  sudo  -S cp -r templatemo_569_edu_meeting /var/www/html'
+            }
+        }
+    }
+}
